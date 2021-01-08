@@ -100,4 +100,17 @@ public class RecipesController {
         }
     }
 
+    @GetMapping("/recipes/published")
+    public ResponseEntity<List<Recipe>> findByPublished() {
+        try {
+            List<Recipe> recipes = recipeRepository.findByPublished(true);
+
+            if (recipes.isEmpty()) {
+                return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            }
+            return new ResponseEntity<>(recipes, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
 }
