@@ -53,10 +53,30 @@ public class RecipesController {
     @PostMapping("/recipes")
     public ResponseEntity<Recipe> createRecipe(@RequestBody Recipe recipe) {
         try {
-            Recipe _recipe = recipeRepository.save(new Recipe(recipe.getTitle(), recipe.getDescription(), recipe.getIngredients(),recipe.getCookingTime(),recipe.getDifficulty(), recipe.getFavoriteFlag(), false));
+          //  Recipe _recipe = recipeRepository.save(new Recipe(recipe.getTitle(), recipe.getDescription(), recipe.getIngredients(),recipe.getCookingTime(),recipe.getDifficulty(), recipe.getFavoriteFlag(), false));
+            Recipe _recipe = recipeRepository.save(new Recipe(recipe.getTitle(), recipe.getDescription()));
             return new ResponseEntity<>(_recipe, HttpStatus.CREATED);
         } catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @PutMapping("/recipes/{id}")
+    public ResponseEntity<Recipe> updateRecipe(@PathVariable("id") String id, @RequestBody Recipe recipe) {
+        Optional<Recipe> recipeData = recipeRepository.findById(id);
+
+        if (recipeData.isPresent()) {
+            Recipe _recipe = recipeData.get();
+            _recipe.setTitle(recipe.getTitle());
+            _recipe.setDescription(recipe.getDescription());
+            _recipe.setIngredients(recipe.getIngredients());
+            _recipe.setCookingTime(recipe.getCookingTime());
+            _recipe.setDifficulty(recipe.getDifficulty());
+            _recipe.setFavoriteFlag(recipe.getFavoriteFlag());
+            _recipe.setPublished(recipe.isPublished());
+            return new ResponseEntity<>(recipeRepository.save(_recipe), HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
 }
