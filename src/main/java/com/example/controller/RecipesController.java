@@ -69,14 +69,35 @@ public class RecipesController {
             Recipe _recipe = recipeData.get();
             _recipe.setTitle(recipe.getTitle());
             _recipe.setDescription(recipe.getDescription());
-            _recipe.setIngredients(recipe.getIngredients());
-            _recipe.setCookingTime(recipe.getCookingTime());
-            _recipe.setDifficulty(recipe.getDifficulty());
-            _recipe.setFavoriteFlag(recipe.getFavoriteFlag());
+//            _recipe.setIngredients(recipe.getIngredients());
+//            _recipe.setCookingTime(recipe.getCookingTime());
+//            _recipe.setDifficulty(recipe.getDifficulty());
+//            _recipe.setFavoriteFlag(recipe.getFavoriteFlag());
             _recipe.setPublished(recipe.isPublished());
             return new ResponseEntity<>(recipeRepository.save(_recipe), HttpStatus.OK);
         } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
+
+    @DeleteMapping("/recipes/{id}")
+    public ResponseEntity<HttpStatus> deleteRecipe(@PathVariable("id") String id) {
+        try {
+            recipeRepository.deleteById(id);
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @DeleteMapping("/recipes")
+    public ResponseEntity<HttpStatus> deleteAllRecipes() {
+        try {
+            recipeRepository.deleteAll();
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
 }
