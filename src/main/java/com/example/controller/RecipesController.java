@@ -49,4 +49,14 @@ public class RecipesController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
+
+    @PostMapping("/recipes")
+    public ResponseEntity<Recipe> createRecipe(@RequestBody Recipe recipe) {
+        try {
+            Recipe _recipe = recipeRepository.save(new Recipe(recipe.getTitle(), recipe.getDescription(), recipe.getIngredients(),recipe.getCookingTime(),recipe.getDifficulty(), recipe.getFavoriteFlag(), false));
+            return new ResponseEntity<>(_recipe, HttpStatus.CREATED);
+        } catch (Exception e) {
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
 }
