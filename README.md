@@ -11,4 +11,4 @@ My Recipes App
 |retrieve a Recipe by Id|`GET`|http://localhost:8080/api/recipes/:id
 |delete a Recipe by Id|`DELETE`|http://localhost:8080/api/recipes/:id|
 |delete all Recipes|`DELETE`|http://localhost:8080/api/recipes|
-|find all Recipes which title contains **keyword**|`DELETE`|http://localhost:8080/api/recipes/api/tutorials?title=[**keyword**]|
+|find all Recipes which title contains [**keyword**]|`GET`|http://localhost:8080/api/recipes/api/tutorials?title=[keyword]|
