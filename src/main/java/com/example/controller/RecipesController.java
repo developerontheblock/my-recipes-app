@@ -9,6 +9,7 @@ import com.example.repository.RecipeRepository;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @CrossOrigin(origins = "http://localhost:8081")
 @RestController
@@ -35,6 +36,17 @@ public class RecipesController {
             return new ResponseEntity<>(recipes, HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @GetMapping("/recipes/{id}")
+    public ResponseEntity<Recipe> getRecipeById(@PathVariable("id") String id) {
+        Optional<Recipe> recipeData = recipeRepository.findById(id);
+
+        if (recipeData.isPresent()) {
+            return new ResponseEntity<>(recipeData.get(), HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
 }
