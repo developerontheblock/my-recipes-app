@@ -11,28 +11,30 @@ public class Recipe {
 
     private String title;
     private String description;
-    private String ingredients;
-    private String cookingTime;
-    private String difficulty;
-    private String favoriteFlag;
+//    private String ingredients;
+//    private String cookingTime;
+//    private String difficulty;
+//    private String favoriteFlag;
     private boolean published;
 
     public Recipe() {
     }
-
-    public Recipe(String title, String description, String ingredients, String cookingTime, String difficulty, String favoriteFlag, boolean published) {
-        this.title = title;
-        this.description = description;
-        this.ingredients = ingredients;
-        this.cookingTime = cookingTime;
-        this.difficulty = difficulty;
-        this.favoriteFlag = favoriteFlag;
-        this.published = published;
-    }
     public Recipe(String title, String description) {
         this.title = title;
         this.description = description;
+
     }
+
+//    public Recipe(String title, String description, String ingredients, String cookingTime, String difficulty, String favoriteFlag, boolean published) {
+//        this.title = title;
+//        this.description = description;
+////        this.ingredients = ingredients;
+////        this.cookingTime = cookingTime;
+////        this.difficulty = difficulty;
+////        this.favoriteFlag = favoriteFlag;
+//        this.published = published;
+//    }
+
 
     public String getId() {
         return id;
@@ -58,37 +60,37 @@ public class Recipe {
         this.description = description;
     }
 
-    public String getIngredients() {
-        return ingredients;
-    }
-
-    public void setIngredients(String ingredients) {
-        this.ingredients = ingredients;
-    }
-
-    public String getCookingTime() {
-        return cookingTime;
-    }
-
-    public void setCookingTime(String cookingTime) {
-        this.cookingTime = cookingTime;
-    }
-
-    public String getDifficulty() {
-        return difficulty;
-    }
-
-    public void setDifficulty(String difficulty) {
-        this.difficulty = difficulty;
-    }
-
-    public String getFavoriteFlag() {
-        return favoriteFlag;
-    }
-
-    public void setFavoriteFlag(String favoriteFlag) {
-        this.favoriteFlag = favoriteFlag;
-    }
+//    public String getIngredients() {
+//        return ingredients;
+//    }
+//
+//    public void setIngredients(String ingredients) {
+//        this.ingredients = ingredients;
+//    }
+//
+//    public String getCookingTime() {
+//        return cookingTime;
+//    }
+//
+//    public void setCookingTime(String cookingTime) {
+//        this.cookingTime = cookingTime;
+//    }
+//
+//    public String getDifficulty() {
+//        return difficulty;
+//    }
+//
+//    public void setDifficulty(String difficulty) {
+//        this.difficulty = difficulty;
+//    }
+//
+//    public String getFavoriteFlag() {
+//        return favoriteFlag;
+//    }
+//
+//    public void setFavoriteFlag(String favoriteFlag) {
+//        this.favoriteFlag = favoriteFlag;
+//    }
 
     public boolean isPublished() {
         return published;
@@ -104,10 +106,10 @@ public class Recipe {
                 "id='" + id + '\'' +
                 ", title='" + title + '\'' +
                 ", description='" + description + '\'' +
-                ", ingredients='" + ingredients + '\'' +
-                ", cookingTime='" + cookingTime + '\'' +
-                ", difficulty='" + difficulty + '\'' +
-                ", favoriteFlag='" + favoriteFlag + '\'' +
+//                ", ingredients='" + ingredients + '\'' +
+//                ", cookingTime='" + cookingTime + '\'' +
+//                ", difficulty='" + difficulty + '\'' +
+//                ", favoriteFlag='" + favoriteFlag + '\'' +
                 ", published=" + published +
                 '}';
     }
