@@ -25,4 +25,4 @@ ng serve --port 8081
 |retrieve a Recipe by Id|`GET`|/api/recipes/:id
 |delete a Recipe by Id|`DELETE`|/api/recipes/:id|
 |delete all Recipes|`DELETE`|/api/recipes|
-|find all Recipes which title contains [**keyword**]|`GET`|/api/recipes/api/tutorials?title=[keyword]|
+|find all Recipes which title contains [**keyword**]|`GET`|/api/recipes/api/recipes?title=[keyword]|
