@@ -13,6 +13,7 @@ target/
 .sts4-cache
 
 ### IntelliJ IDEA ###
+.idea/
 my-recipes-app-BE/.idea
 my-recipes-app-FE/.idea
 *.iws
