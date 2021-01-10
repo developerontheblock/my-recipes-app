@@ -3,7 +3,6 @@ target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
-.idea/
 ### STS ###
 .apt_generated
 .classpath
@@ -15,6 +14,7 @@ target/
 
 ### IntelliJ IDEA ###
 my-recipes-app-BE/.idea
+my-recipes-app-FE/.idea
 *.iws
 *.iml
 *.ipr
