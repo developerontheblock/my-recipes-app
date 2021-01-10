@@ -1,5 +1,4 @@
-<p>add-recipe works!</p>
-<div style="width: 400px; margin: auto;">
+<div>
   <div class="submit-form">
     <div *ngIf="!submitted">
       <div class="form-group">
@@ -22,6 +21,59 @@
           required
           [(ngModel)]="recipe.description"
           name="description"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="ingredients">Ingredients</label>
+        <input
+                class="form-control"
+                id="ingredients"
+                required
+                [(ngModel)]="recipe.ingredients"
+                name="ingredients"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="cookingTime">Cooking Time(in minutes)</label>
+        <input
+                class="form-control"
+                id="cookingTime"
+                type="number"
+                min="0"
+                step="1"
+                required
+                [(ngModel)]="recipe.cookingTime"
+                name="cookingTime"
+        />
+      </div>
+
+      <label for="difficulty">Difficulty</label>
+      <div class="input-group mb-3">
+        <select class="custom-select form-control"
+                id="difficulty"
+                required
+                [(ngModel)]="recipe.difficulty"
+                name="difficulty">
+          <option selected>Choose...</option>
+          <option value="1">EASY</option>
+          <option value="2">HARD</option>
+          <option value="3">PRO</option>
+        </select>
+        <div class="input-group-append">
+          <label class="input-group-text" for="difficulty">Options</label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="favoriteFlag">Favorite Flag</label>
+        <input
+                class="form-control"
+                id="favoriteFlag"
+                required
+                [(ngModel)]="recipe.favoriteFlag"
+                name="favoriteFlag"
         />
       </div>
 

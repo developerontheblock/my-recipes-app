@@ -1,4 +1,3 @@
-<p>recipes-list works!</p>
 <div class="list row">
   <div class="col-md-8">
     <div class="input-group mb-3">
@@ -10,7 +9,7 @@
       />
       <div class="input-group-append">
         <button
-          class="btn btn-outline-secondary"
+          class="btn btn-outline-primary"
           type="button"
           (click)="searchTitle()"
         >
@@ -47,13 +46,38 @@
         {{ currentRecipe.description }}
       </div>
       <div>
+        <label><strong>Ingredients:</strong></label>
+        {{ currentRecipe.ingredients }}
+      </div>
+      <div>
+        <label><strong>Cooking Time:</strong></label>
+        {{ currentRecipe.cookingTime }}
+      </div>
+      <div>
+        <label><strong>Difficulty:</strong></label>
+        {{ currentRecipe.difficulty }}
+      </div>
+      <div>
+        <label><strong>Favorite Flag:</strong></label>
+        {{ currentRecipe.favoriteFlag }}
+      </div>
+      <div>
         <label><strong>Status:</strong></label>
         {{ currentRecipe.published ? "Published" : "Pending" }}
       </div>
 
-      <a class="badge badge-warning" routerLink="/recipes/{{ currentRecipe.id }}">
+      <a class="btn btn-warning" routerLink="/recipes/{{ currentRecipe.id }}">
         Edit
       </a>
+
+      <div class="mt-5">
+        <p><strong>Difficulty levels</strong></p>
+        <ol>
+          <li>EASY</li>
+          <li>HARD</li>
+          <li>PRO</li>
+        </ol>
+      </div>
     </div>
 
     <div *ngIf="!currentRecipe">

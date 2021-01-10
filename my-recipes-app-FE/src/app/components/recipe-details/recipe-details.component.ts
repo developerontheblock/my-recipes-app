@@ -38,6 +38,10 @@ export class RecipeDetailsComponent implements OnInit {
     const data = {
       title: this.currentRecipe.title,
       description: this.currentRecipe.description,
+      ingredients: this.currentRecipe.ingredients,
+      cookingTime: this.currentRecipe.cookingTime,
+      difficulty: this.currentRecipe.difficulty,
+      favoriteFlag: this.currentRecipe.favoriteFlag,
       published: status
     };
 

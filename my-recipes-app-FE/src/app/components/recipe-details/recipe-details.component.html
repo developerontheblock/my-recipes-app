@@ -1,5 +1,4 @@
-<p>recipe-details works!</p>
-<div style="width: 400px; margin: auto;">
+<div>
   <div *ngIf="currentRecipe" class="edit-form">
     <h4>Recipe</h4>
     <form>
@@ -23,7 +22,55 @@
           name="description"
         />
       </div>
+      <div class="form-group">
+        <label for="ingredients">Ingredients</label>
+        <input
+                type="text"
+                class="form-control"
+                id="ingredients"
+                [(ngModel)]="currentRecipe.ingredients"
+                name="ingredients"
+        />
+      </div>
+      <div class="form-group">
+        <label for="cookingTime">Cooking Time(in minutes)</label>
+        <input
+                class="form-control"
+                id="cookingTime"
+                type="number"
+                min="0"
+                step="1"
+                [(ngModel)]="currentRecipe.cookingTime"
+                name="cookingTime"
+        />
+      </div>
 
+      <label for="difficulty">Difficulty</label>
+      <div class="input-group mb-3">
+        <select class="custom-select form-control"
+                id="difficulty"
+                [(ngModel)]="currentRecipe.difficulty"
+                name="difficulty">
+          <option selected>Choose...</option>
+          <option value="1">EASY</option>
+          <option value="2">HARD</option>
+          <option value="3">PRO</option>
+        </select>
+        <div class="input-group-append">
+          <label class="input-group-text" for="difficulty">Options</label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="favoriteFlag">Favorite Flag</label>
+        <input
+                type="text"
+                class="form-control"
+                id="favoriteFlag"
+                [(ngModel)]="currentRecipe.favoriteFlag"
+                name="favoriteFlag"
+        />
+      </div>
       <div class="form-group">
         <label><strong>Status:</strong></label>
         {{ currentRecipe.published ? "Published" : "Pending" }}
@@ -31,7 +78,7 @@
     </form>
 
     <button
-      class="badge badge-primary mr-2"
+      class="btn btn-primary mr-2"
       *ngIf="currentRecipe.published"
       (click)="updatePublished(false)"
     >
@@ -39,19 +86,19 @@
     </button>
     <button
       *ngIf="!currentRecipe.published"
-      class="badge badge-primary mr-2"
+      class="btn btn-primary mr-2"
       (click)="updatePublished(true)"
     >
       Publish
     </button>
 
-    <button class="badge badge-danger mr-2" (click)="deleteRecipe()">
+    <button class="btn btn-danger mr-2" (click)="deleteRecipe()">
       Delete
     </button>
 
     <button
       type="submit"
-      class="badge badge-success"
+      class="btn btn-success"
       (click)="updateRecipe()"
     >
       Update

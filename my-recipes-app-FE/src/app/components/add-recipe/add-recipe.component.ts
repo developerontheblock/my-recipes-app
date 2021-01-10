@@ -11,6 +11,10 @@ export class AddRecipeComponent implements OnInit {
   recipe = {
     title: '',
     description: '',
+    ingredients: '',
+    cookingTime: '',
+    difficulty: '',
+    favoriteFlag: '',
     published: false
   };
   submitted = false;
@@ -23,7 +27,11 @@ export class AddRecipeComponent implements OnInit {
   saveRecipe(): void {
     const data = {
       title: this.recipe.title,
-      description: this.recipe.description
+      description: this.recipe.description,
+      ingredients: this.recipe.ingredients,
+      cookingTime: this.recipe.cookingTime,
+      difficulty: this.recipe.difficulty,
+      favoriteFlag: this.recipe.favoriteFlag
     };
 
     this.recipeService.create(data)
@@ -42,6 +50,10 @@ export class AddRecipeComponent implements OnInit {
     this.recipe = {
       title: '',
       description: '',
+      ingredients: '',
+      cookingTime: '',
+      difficulty: '',
+      favoriteFlag: '',
       published: false
     };
   }
