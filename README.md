@@ -19,10 +19,32 @@ ng serve --port 8081
 
 |Actions|HTTP Method|Request URL|
 |---|----|-----------|
-|create new Recipe|`POST`|/api/recipes|
-|retrieve all Recipes|`GET`|/api/recipes|
-|update a Recipe by Id|`PUT`|/api/recipes/:id|
-|retrieve a Recipe by Id|`GET`|/api/recipes/:id
-|delete a Recipe by Id|`DELETE`|/api/recipes/:id|
-|delete all Recipes|`DELETE`|/api/recipes|
-|find all Recipes which title contains [**keyword**]|`GET`|/api/recipes/api/recipes?title=[keyword]|
+|Create new Recipe|`POST`|/api/recipes|
+|Retrieve all Recipes|`GET`|/api/recipes|
+|Update a Recipe by Id|`PUT`|/api/recipes/:id|
+|Retrieve a Recipe by Id|`GET`|/api/recipes/:id
+|Delete a Recipe by Id|`DELETE`|/api/recipes/:id|
+|Delete all Recipes|`DELETE`|/api/recipes|
+|Find all Recipes which title contains [**keyword**]|`GET`|/api/recipes/api/recipes?title=[keyword]|
+
+
+**Auth Endpoints** /
+Before running this endpoints please
+run following MongoDB insert statements. Then check collections
+```
+db.roles.insertMany([
+   { name: "ROLE_USER" },
+   { name: "ROLE_MODERATOR" },
+   { name: "ROLE_ADMIN" }
+])
+```
+
+|Actions|HTTP Method|Request URL|
+|---|----|-----------|
+|Register|`POST`|/api/auth/signup|
+|Access public resource|`GET`|/api/test/all|
+|Access protected resource|`GET`|/api/test/user|
+|Login|`POST`|/api/auth/signin|
+|Access ROLE_USER resource|`GET`|/api/test/user (need the token from login response)| 
+|Access ROLE_MODERATOR resource|`GET`|/api/test/mod|
+|Access ROLE_ADMIN resource|`GET`|/api/test/admin|
