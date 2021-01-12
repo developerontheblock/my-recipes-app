@@ -1,6 +1,11 @@
 # my-recipes-app
 My Recipes App
 
+## Technology stack
+
+Frontend: [Angular](https://angular.io),
+Backend: [Spring boot](https://spring.io/projects/spring-boot),
+Storage: [Mongo](https://www.mongodb.com)
 
 ## Run Spring Boot application
 
