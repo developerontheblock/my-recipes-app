@@ -17,6 +17,7 @@ mvn spring-boot:run
 ## Run Angular application
 
 ```bash
+npm install
 ng serve --port 8081
 ```
 
